@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anything Digital | Growth-Driven Marketing Agency</title>
+  <meta name="description" content="Anything Digital is a results-first digital marketing agency. We turn clicks into customers through SEO, paid media, content, and brand strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ───────────────────────────────────────────── */
+    :root {
+      --ink:       #0f0e0c;
+      --paper:     #f6f4ef;
+      --warm-mid:  #e8e4da;
+      --accent:    #d45b2a;        /* burnt-orange */
+      --accent-lt: #f2ddd3;
+      --teal:      #1a6b72;        /* secondary accent */
+      --muted:     #7a776f;
+      --white:     #ffffff;
+
+      --serif:  'DM Serif Display', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
+
+      --r-sm: 6px;
+      --r-md: 14px;
+      --r-pill: 999px;
+
+      --max: 1200px;
+      --pad: clamp(20px, 5vw, 80px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILITY ──────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .tag {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .divider { border: none; border-top: 1.5px solid var(--warm-mid); margin: 0; }
+
+    /* ── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246,244,239,.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1.5px solid var(--warm-mid);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      gap: 24px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: .75;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-ctas { display: flex; gap: 10px; align-items: center; }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all .2s;
+    }
+    .btn-ghost {
+      padding: 8px 18px;
+      border-radius: var(--r-pill);
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--warm-mid);
+    }
+    .btn-ghost:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+    .btn-primary {
+      padding: 9px 22px;
+      border-radius: var(--r-pill);
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #b84e23; }
+    .btn-lg {
+      padding: 14px 32px;
+      font-size: 15px;
+      border-radius: var(--r-pill);
+    }
+
+    /* hamburger */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); margin: 5px 0;
+      transition: all .3s;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      padding: clamp(60px, 10vw, 120px) 0 0;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      max-width: 820px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+    /* dashboard mockup */
+    .hero-mockup {
+      margin-top: 56px;
+      width: 100%;
+      max-width: 960px;
+      border-radius: 18px 18px 0 0;
+      background: var(--ink);
+      padding: 28px 28px 0;
+      box-shadow: 0 32px 80px rgba(15,14,12,.18);
+      position: relative;
+    }
+    .mockup-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot:nth-child(1) { background: #ff5f57; }
+    .mockup-dot:nth-child(2) { background: #febc2e; }
+    .mockup-dot:nth-child(3) { background: #28c840; }
+    .mockup-url {
+      flex: 1; height: 24px; background: rgba(255,255,255,.08);
+      border-radius: 6px; margin: 0 auto; max-width: 300px;
+    }
+    .mockup-screen {
+      background: #1a1917;
+      border-radius: 10px 10px 0 0;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      min-height: 280px;
+    }
+    .metric-card {
+      background: rgba(255,255,255,.05);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .metric-label {
+      font-size: 11px;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .metric-val {
+      font-family: var(--serif);
+      font-size: 32px;
+      color: #fff;
+      line-height: 1;
+    }
+    .metric-val span { font-size: 14px; color: #4ade80; margin-left: 6px; font-family: var(--sans); }
+    .metric-bar { margin-top: 14px; }
+    .metric-bar-bg { height: 4px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+    .metric-bar-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+    .metric-bar-fill.teal { background: var(--teal); }
+    .metric-bar-fill.green { background: #4ade80; }
+    .mockup-chart {
+      grid-column: 1 / -1;
+      background: rgba(255,255,255,.03);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 110px;
+    }
+    .chart-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+    .chart-bar {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      background: rgba(212,91,42,.25);
+      transition: background .3s;
+    }
+    .chart-bar.active { background: var(--accent); }
+    .chart-label { font-size: 10px; color: rgba(255,255,255,.3); }
+
+    /* ── SECTION COMMON ───────────────────────────────────── */
+    section { padding: clamp(64px, 8vw, 120px) 0; }
+
+    /* ── TRUST BAR ────────────────────────────────────────── */
+    .trust {
+      padding: 32px 0;
+      border-top: 1.5px solid var(--warm-mid);
+      border-bottom: 1.5px solid var(--warm-mid);
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(24px, 5vw, 60px);
+      flex-wrap: wrap;
+    }
+    .trust-label { font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+    .trust-logos { display: flex; gap: clamp(24px, 4vw, 48px); align-items: center; flex-wrap: wrap; justify-content: center; }
+    .trust-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--muted);
+      opacity: .55;
+      letter-spacing: -.01em;
+    }
+
+    /* ── MADE FOR ─────────────────────────────────────────── */
+    .made-for { background: var(--paper); }
+    .section-intro {
+      max-width: 680px;
+      margin: 0 auto clamp(48px, 6vw, 80px);
+      text-align: center;
+    }
+    .section-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .section-intro h2 em { font-style: italic; color: var(--accent); }
+    .section-intro p { font-size: 17px; color: var(--muted); line-height: 1.65; }
+
+    /* ── FEATURES TABS ────────────────────────────────────── */
+    .features-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .tab-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 1.5px solid var(--warm-mid);
+      padding-bottom: 0;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 10px 18px;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -1.5px;
+      transition: all .2s;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+
+    .tab-content h3 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.5vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -.015em;
+      margin-bottom: 16px;
+    }
+    .tab-content p { color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .tab-content ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tab-content ul li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; color: var(--muted);
+    }
+    .tab-content ul li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tab-visual {
+      background: var(--warm-mid);
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* Fake mini dashboard visuals per tab */
+    .visual-inner {
+      width: 90%; height: 85%;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+    .vis-title { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; }
+    .vis-bars { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
+    .vis-bar {
+      flex: 1; border-radius: 4px 4px 0 0;
+      background: var(--accent);
+      opacity: .2;
+    }
+    .vis-bar.hi { opacity: 1; }
+    .vis-bar.mid { opacity: .55; }
+    .vis-line { height: 2px; background: var(--warm-mid); margin: 16px 0; }
+    .vis-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vis-pill {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+      background: var(--accent-lt); color: var(--accent);
+    }
+    .vis-pill.teal { background: rgba(26,107,114,.1); color: var(--teal); }
+    .vis-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .vis-row-label { font-size: 13px; color: var(--ink); }
+    .vis-row-bar { height: 6px; border-radius: 3px; background: var(--accent); }
+    .vis-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vis-stat { background: var(--paper); border-radius: 8px; padding: 12px; }
+    .vis-stat-val { font-family: var(--serif); font-size: 22px; color: var(--ink); }
+    .vis-stat-label { font-size: 11px; color: var(--muted); }
+
+    /* ── PRINCIPLED ───────────────────────────────────────── */
+    .principled {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .principled-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+    .principled h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+    .principled h2 em { font-style: italic; color: #e8825e; }
+    .principled p { color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 20px; font-size: 17px; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 1;
+      color: var(--white);
+    }
+    .stat-num sup { font-size: 22px; vertical-align: super; }
+    .stat-desc { font-size: 13px; color: rgba(255,255,255,.45); margin-top: 4px; }
+    .principled-visual {
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .score-ring-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
+    .score-ring {
+      width: 96px; height: 96px; flex-shrink: 0;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) 0% 82%, rgba(255,255,255,.08) 82%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .score-ring-inner {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .score-ring-val { font-family: var(--serif); font-size: 22px; color: #fff; }
+    .score-ring-label { color: rgba(255,255,255,.5); font-size: 13px; }
+    .score-ring-title { color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+    .channel-list { display: flex; flex-direction: column; gap: 12px; }
+    .channel-item { display: flex; align-items: center; gap: 12px; }
+    .channel-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .channel-label { font-size: 13px; color: rgba(255,255,255,.7); flex: 1; }
+    .channel-bar-wrap { width: 100px; }
+    .channel-bar-bg-dark { height: 4px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+    .channel-bar-fill-dark { height: 100%; border-radius: 2px; }
+    .channel-pct { font-size: 12px; color: rgba(255,255,255,.4); width: 34px; text-align: right; }
+
+    /* ── SERVICES GRID ────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--warm-mid);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--paper);
+      padding: clamp(24px, 3vw, 40px);
+      transition: background .2s;
+    }
+    .service-card:hover { background: var(--accent-lt); }
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--accent-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+    .service-card h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── TESTIMONIALS ─────────────────────────────────────── */
+    .testimonials { background: var(--warm-mid); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .testimonial-card blockquote {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; color: var(--white);
+    }
+    .author-name { font-weight: 600; font-size: 14px; }
+    .author-role { font-size: 12px; color: var(--muted); }
+
+    /* ── QUOTE BAND ───────────────────────────────────────── */
+    .quote-band {
+      background: var(--paper);
+      padding: 60px 0;
+      border-top: 1.5px solid var(--warm-mid);
+      border-bottom: 1.5px solid var(--warm-mid);
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 36px);
+      color: var(--ink);
+      max-width: 820px;
+      margin: 0 auto 12px;
+      line-height: 1.3;
+      letter-spacing: -.01em;
+    }
+    .quote-band cite { font-size: 13px; color: var(--muted); font-style: normal; }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .cta-section {
+      padding: clamp(80px, 10vw, 140px) 0;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 72px);
+      letter-spacing: -.02em;
+      line-height: 1.07;
+      margin-bottom: 20px;
+    }
+    .cta-section p { font-size: 18px; color: var(--muted); max-width: 480px; margin: 0 auto 36px; }
+    .cta-section .btn-primary.btn-lg { display: inline-block; }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.6);
+      padding: clamp(40px, 6vw, 80px) 0 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo { color: var(--white); margin-bottom: 14px; display: block; }
+    .footer-brand p { font-size: 14px; line-height: 1.65; }
+    footer h4 { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 16px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    footer ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; transition: color .2s; }
+    footer ul li a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; }
+    .social-links { display: flex; gap: 16px; }
+    .social-links a {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .social-links a:hover { background: rgba(255,255,255,.15); }
+
+    /* ── MOBILE ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-ctas { display: none; }
+      .hamburger { display: block; }
+      .tab-panel.active { grid-template-columns: 1fr; }
+      .principled-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .mockup-screen { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; gap: 16px; }
+      .mockup-screen { grid-template-columns: 1fr; min-height: auto; }
+    }
+
+    /* ── SCROLL ANIMATIONS ────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Anything<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="#" class="btn btn-ghost">Log in</a>
+      <a href="#" class="btn btn-primary">Get a proposal</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <p class="tag">Growth-driven digital marketing</p>
+      <h1>Marketing that <em>moves</em> the needle</h1>
+      <p class="hero-sub">Anything Digital helps ambitious brands grow through SEO, paid media, content strategy, and conversion-focused creative — built on real data, not guesswork.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary btn-lg">Get a free proposal</a>
+        <a href="#results" class="btn btn-ghost btn-lg">See our results →</a>
+      </div>
+    </div>
+
+    <!-- Dashboard mockup -->
+    <div class="hero-mockup fade-up">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+        <div class="mockup-url"></div>
+      </div>
+      <div class="mockup-screen">
+        <div class="metric-card">
+          <div class="metric-label">Organic Traffic</div>
+          <div class="metric-val">184K <span>↑ 38%</span></div>
+          <div class="metric-bar"><div class="metric-bar-bg"><div class="metric-bar-fill" style="width:74%"></div></div></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Conversion Rate</div>
+          <div class="metric-val">4.8% <span>↑ 12%</span></div>
+          <div class="metric-bar"><div class="metric-bar-bg"><div class="metric-bar-fill teal" style="width:58%"></div></div></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Revenue Attributed</div>
+          <div class="metric-val">$2.1M <span>↑ 61%</span></div>
+          <div class="metric-bar"><div class="metric-bar-bg"><div class="metric-bar-fill green" style="width:88%"></div></div></div>
+        </div>
+        <div class="mockup-chart">
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:40%"></div><div class="chart-label">Jan</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:55%"></div><div class="chart-label">Feb</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:50%"></div><div class="chart-label">Mar</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:65%"></div><div class="chart-label">Apr</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:72%"></div><div class="chart-label">May</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar active" style="height:90%"></div><div class="chart-label">Jun</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:78%"></div><div class="chart-label">Jul</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:82%"></div><div class="chart-label">Aug</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:88%"></div><div class="chart-label">Sep</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:95%"></div><div class="chart-label">Oct</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar" style="height:100%"></div><div class="chart-label">Nov</div></div>
+          <div class="chart-bar-wrap"><div class="chart-bar active" style="height:85%"></div><div class="chart-label">Dec</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="trust-label">Trusted by</span>
+      <div class="trust-logos">
+        <span class="trust-logo">Helio</span>
+        <span class="trust-logo">Arkwood</span>
+        <span class="trust-logo">Vanta Co.</span>
+        <span class="trust-logo">Sorrel</span>
+        <span class="trust-logo">Driftline</span>
+        <span class="trust-logo">Paxum</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MADE FOR ── -->
+<section class="made-for" id="services">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <p class="tag">What we do</p>
+      <h2>One agency for <em>all your growth</em> channels</h2>
+      <p>Chasing metrics across six disconnected freelancers, three agencies, and a spreadsheet you're not sure is live? That's not a strategy. Anything Digital unifies your marketing into one clear growth engine.</p>
+    </div>
+
+    <div class="features-tabs fade-up">
+      <div class="tab-controls">
+        <button class="tab-btn active" data-tab="seo">SEO &amp; Content</button>
+        <button class="tab-btn" data-tab="paid">Paid Media</button>
+        <button class="tab-btn" data-tab="social">Social &amp; Brand</button>
+        <button class="tab-btn" data-tab="cro">Conversion</button>
+      </div>
+
+      <!-- SEO Tab -->
+      <div class="tab-panel active" id="tab-seo">
+        <div class="tab-content">
+          <h3>Rank higher, earn more</h3>
+          <p>We build SEO strategies that compound over time — combining technical audits, content briefs, and authoritative link building into a system that keeps delivering.</p>
+          <ul>
+            <li>Full-site technical SEO audits</li>
+            <li>Keyword gap analysis and topical mapping</li>
+            <li>Content briefs and editorial calendars</li>
+            <li>Authority link building campaigns</li>
+            <li>Monthly performance reporting</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-inner">
+            <div class="vis-title">Keyword Rankings — Growth</div>
+            <div class="vis-bars">
+              <div class="vis-bar" style="height:30%"></div>
+              <div class="vis-bar mid" style="height:45%"></div>
+              <div class="vis-bar mid" style="height:52%"></div>
+              <div class="vis-bar" style="height:60%"></div>
+              <div class="vis-bar hi" style="height:78%"></div>
+              <div class="vis-bar hi" style="height:92%"></div>
+              <div class="vis-bar hi" style="height:100%"></div>
+            </div>
+            <div class="vis-line"></div>
+            <div class="vis-pills">
+              <span class="vis-pill">+184% traffic</span>
+              <span class="vis-pill teal">+62 positions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paid Tab -->
+      <div class="tab-panel" id="tab-paid">
+        <div class="tab-content">
+          <h3>Every dollar spent, accounted for</h3>
+          <p>From Google and Meta to programmatic display, we build paid campaigns that minimize wasted spend and maximize the revenue that reaches your bottom line.</p>
+          <ul>
+            <li>Google Ads &amp; Performance Max management</li>
+            <li>Meta, TikTok, and LinkedIn campaigns</li>
+            <li>Audience research and segmentation</li>
+            <li>Creative testing and iteration</li>
+            <li>Attribution modeling and ROAS tracking</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-inner">
+            <div class="vis-title">ROAS by Channel</div>
+            <div class="vis-row"><div class="vis-row-label">Google Search</div><div class="vis-row-bar" style="width:85%"></div></div>
+            <div class="vis-row"><div class="vis-row-label">Meta Ads</div><div class="vis-row-bar" style="width:64%"></div></div>
+            <div class="vis-row"><div class="vis-row-label">TikTok</div><div class="vis-row-bar" style="width:48%"></div></div>
+            <div class="vis-row"><div class="vis-row-label">Display</div><div class="vis-row-bar" style="width:38%"></div></div>
+            <div class="vis-line"></div>
+            <div class="vis-pills">
+              <span class="vis-pill">Avg ROAS 4.2×</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Tab -->
+      <div class="tab-panel" id="tab-social">
+        <div class="tab-content">
+          <h3>Build a brand people remember</h3>
+          <p>Followers are vanity; community is strategy. We craft social content and brand narratives that build genuine audiences who buy, advocate, and come back.</p>
+          <ul>
+            <li>Brand voice and visual identity guidelines</li>
+            <li>Organic social content calendars</li>
+            <li>Short-form video scripts and production briefs</li>
+            <li>Influencer and creator partnership management</li>
+            <li>Community engagement playbooks</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-inner">
+            <div class="vis-title">Engagement Overview</div>
+            <div class="vis-stat-grid">
+              <div class="vis-stat"><div class="vis-stat-val">48K</div><div class="vis-stat-label">New followers</div></div>
+              <div class="vis-stat"><div class="vis-stat-val">6.2%</div><div class="vis-stat-label">Avg. engagement</div></div>
+              <div class="vis-stat"><div class="vis-stat-val">2.4M</div><div class="vis-stat-label">Impressions</div></div>
+              <div class="vis-stat"><div class="vis-stat-val">↑82%</div><div class="vis-stat-label">YoY reach</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRO Tab -->
+      <div class="tab-panel" id="tab-cro">
+        <div class="tab-content">
+          <h3>Turn more visitors into customers</h3>
+          <p>Traffic without conversion is just noise. Our CRO team audits your funnels, designs experiments, and ships changes that make every visit count more.</p>
+          <ul>
+            <li>Heatmap and session-recording analysis</li>
+            <li>A/B and multivariate testing</li>
+            <li>Landing page design and copywriting</li>
+            <li>Checkout and form optimization</li>
+            <li>Ongoing experiment roadmap</li>
+          </ul>
+        </div>
+        <div class="tab-visual">
+          <div class="visual-inner">
+            <div class="vis-title">Funnel Improvement</div>
+            <div class="vis-row"><div class="vis-row-label">Landing page CTR</div><div class="vis-row-bar" style="width:72%;background:var(--teal)"></div></div>
+            <div class="vis-row"><div class="vis-row-label">Add-to-cart rate</div><div class="vis-row-bar" style="width:55%;background:var(--teal)"></div></div>
+            <div class="vis-row"><div class="vis-row-label">Checkout complete</div><div class="vis-row-bar" style="width:88%;background:var(--teal)"></div></div>
+            <div class="vis-line"></div>
+            <div class="vis-pills">
+              <span class="vis-pill teal">+31% CVR lift</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRINCIPLED ── -->
+<section class="principled" id="results">
+  <div class="container">
+    <div class="principled-inner">
+      <div>
+        <p class="tag" style="color:#e8825e;">Why Anything Digital</p>
+        <h2>Data-first, <em>results-obsessed</em></h2>
+        <p>We don't bill by the hour and hope something sticks. Every campaign we run is tied to the metrics your business actually cares about — revenue, leads, and customers.</p>
+        <p>Our team of 40+ specialists across SEO, paid, creative, and analytics has helped over 300 brands hit their growth targets.</p>
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-num">300<sup>+</sup></div>
+            <div class="stat-desc">brands scaled since 2018</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4.8×</div>
+            <div class="stat-desc">average ROAS across all paid accounts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">$240M</div>
+            <div class="stat-desc">in attributed client revenue last year</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">94%</div>
+            <div class="stat-desc">client retention rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="principled-visual">
+        <div class="score-ring-wrap">
+          <div class="score-ring"><div class="score-ring-inner"><div class="score-ring-val">82</div></div></div>
+          <div>
+            <div class="score-ring-title">Overall Growth Score</div>
+            <div class="score-ring-label">Averaged across active accounts</div>
+          </div>
+        </div>
+        <div class="channel-list">
+          <div class="channel-item">
+            <div class="channel-icon" style="background:rgba(212,91,42,.15)">🔍</div>
+            <div class="channel-label">Organic Search</div>
+            <div class="channel-bar-wrap"><div class="channel-bar-bg-dark"><div class="channel-bar-fill-dark" style="width:88%;background:var(--accent)"></div></div></div>
+            <div class="channel-pct">88%</div>
+          </div>
+          <div class="channel-item">
+            <div class="channel-icon" style="background:rgba(26,107,114,.15)">💰</div>
+            <div class="channel-label">Paid Media</div>
+            <div class="channel-bar-wrap"><div class="channel-bar-bg-dark"><div class="channel-bar-fill-dark" style="width:74%;background:var(--teal)"></div></div></div>
+            <div class="channel-pct">74%</div>
+          </div>
+          <div class="channel-item">
+            <div class="channel-icon" style="background:rgba(74,222,128,.1)">📱</div>
+            <div class="channel-label">Social &amp; Content</div>
+            <div class="channel-bar-wrap"><div class="channel-bar-bg-dark"><div class="channel-bar-fill-dark" style="width:61%;background:#4ade80"></div></div></div>
+            <div class="channel-pct">61%</div>
+          </div>
+          <div class="channel-item">
+            <div class="channel-icon" style="background:rgba(251,191,36,.1)">⚡</div>
+            <div class="channel-label">CRO &amp; Email</div>
+            <div class="channel-bar-wrap"><div class="channel-bar-bg-dark"><div class="channel-bar-fill-dark" style="width:79%;background:#fbbf24"></div></div></div>
+            <div class="channel-pct">79%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES GRID ── -->
+<section id="work">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <p class="tag">Our services</p>
+      <h2>Everything you need to <em>grow</em></h2>
+      <p>Pick one channel or the full stack. Either way, you get a dedicated team, transparent reporting, and a strategy built around your goals.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>SEO</h3>
+        <p>Technical audits, content strategy, and link building that move you up the SERPs and keep you there.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💰</div>
+        <h3>Paid Media</h3>
+        <p>Google, Meta, TikTok, and more — campaigns built to maximise return on every dollar spent.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✍️</div>
+        <h3>Content Marketing</h3>
+        <p>Editorial strategy, longform articles, video scripts, and thought leadership that attracts and converts.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Social Media</h3>
+        <p>Organic social strategy, community management, and creator partnerships that build a genuine audience.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Conversion Optimisation</h3>
+        <p>Heatmaps, A/B tests, and landing page redesigns that turn more of your existing traffic into paying customers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Analytics &amp; Reporting</h3>
+        <p>Custom dashboards, attribution modelling, and weekly clarity on exactly what's working and why.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-intro fade-up">
+      <p class="tag">Client stories</p>
+      <h2>Results our clients <em>actually talk about</em></h2>
+    </div>
+    <div class="testimonials-grid fade-up">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Anything Digital took our organic traffic from 12K to 184K monthly visits in 14 months. The SEO team is methodical, communicative, and genuinely curious about our business."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--accent)">SR</div>
+          <div><div class="author-name">Sophia Reeves</div><div class="author-role">CMO, Helio Commerce</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"We'd burned through two other paid agencies before Anything Digital. Within 90 days they cut our CPA by 40% while growing spend. I wish we'd found them sooner."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--teal)">DM</div>
+          <div><div class="author-name">Daniel Mensah</div><div class="author-role">Founder, Driftline</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The CRO work alone paid for the entire retainer three times over. They identified a checkout issue we'd missed for years and fixed it in one sprint."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#7c5cbc">AK</div>
+          <div><div class="author-name">Amara Kim</div><div class="author-role">Head of Growth, Sorrel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE BAND ── -->
+<div class="quote-band">
+  <div class="container">
+    <blockquote>"In marketing, the best strategy is to stop interrupting what people are interested in and become what people are interested in."</blockquote>
+    <cite>— Craig Davis, former Chief Creative Officer, J. Walter Thompson</cite>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="about">
+  <div class="container">
+    <p class="tag" style="text-align:center;">Get started</p>
+    <h2>Ready to grow?<br>Let's talk.</h2>
+    <p>Tell us where you want to be in 12 months. We'll show you exactly how to get there.</p>
+    <a href="#" class="btn btn-primary btn-lg">Get a free proposal</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">Anything<span style="color:var(--accent)">.</span>Digital</a>
+        <p>A growth-first digital marketing agency founded by Mukter Hossain Rimon, helping ambitious brands scale through SEO, paid media, content, and conversion optimisation.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">SEO</a></li>
+          <li><a href="#">Paid Media</a></li>
+          <li><a href="#">Content Marketing</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">CRO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Cookie settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Anything Digital. All rights reserved. — CEO: Mukter Hossain Rimon</p>
+      <div class="social-links">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Twitter / X">𝕏</a>
+        <a href="#" title="Instagram">ig</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
